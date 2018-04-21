@@ -1,0 +1,7 @@
+
+@font-face {
+  font-family: 'Eksell';
+  src:
+    url(./Eksell-Medium.woff2) format('woff2'),
+    url(./Eksell-Medium.woff) format('woff');
+}
