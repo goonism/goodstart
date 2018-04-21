@@ -35,8 +35,8 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{ minHeight: "100%", minWidth: "100%", background: this.state.color }}>
-        <div backgroundImage={"url("+ this.state.meme +")"}/>
+      <div style={{backgroundColor: this.state.quote}}>
+        <div style={{ background:"url("+ this.state.meme +")"}}/>
         <h1 style={{ color: "white", fontFamily: "Eksell, serif", fontSize: 100 }}>{ this.state.quote }</h1>
       </div>
     )
