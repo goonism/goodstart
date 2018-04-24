@@ -1,17 +1,20 @@
 
-const API = ""
+const API = "http://localhost:8000"
 
-const emptyLiteral = {
-  backgroundColor: "", 
-  positiveMessage: ""
-}
 
-export function getPage() {
-  return fetch(API+"/getPage")
+export function getMessage() {
+  return fetch(API+"/message")
     .then((response) => response.json())
-    .catch((error) => emptyLiteral)
+    .catch((error) => {
+      return "Server is down :( Please tweet @stayfun_"
+    })
 }
 
-export function imageURL() {
-  return API+"/positiveImage"
+export function getImage() {
+  return fetch(API+"/image")
+      .then((response) => response.json())
+      .catch((error) => {
+        console.log(error)
+        return ""
+      })
 }

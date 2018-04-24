@@ -1,9 +1,12 @@
 {
-  "short_name": "React App",
-  "name": "React Extension",
+  "short_name": "Goodstart",
+  "name": "Goodstart",
   "manifest_version": 2,
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "permissions": [
+    "http://167.99.237.118/*"
+  ],
   "version": "1.0"
 }

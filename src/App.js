@@ -5,11 +5,11 @@ import fonts from './font.css'
 import * as API from './api.js'
 
 const PASTEL = [
-  "#ffb3ba",
-  "#ffdfba",
-  "#ffffba",
-  "#baffc9",
-  "#bae1ff"
+  "#c0392b",
+  "#2980b9",
+  "#16a085",
+  "#34495e",
+  "#d35400"
 ]
 
 class App extends Component {
@@ -17,27 +17,39 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      color: PASTEL[0],
-      quote: "derp",
-      meme: ""
+      message: "",
+      imageUrl: "",
+      redditLink: ""
     }
   }
 
-  componentDidMount() {
-    API.getPage().then((json) => {
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  componentWillMount() {
+    console.log("doing this...");
+    API.getMessage().then((message) => {
       this.setState({
-        color: json.backgroundColor,
-        quote: json.positiveMessage,
-        meme: API.imageURL()
+        message
       })
     })
+    API.getImage().then((image) => {
+      this.setState({
+        imageUrl: image[0],
+        redditLink: image[1]
+      })
+    })
+    document.body.style.backgroundColor = PASTEL[this.getRandomInt(PASTEL.length)];
   }
 
   render() {
     return (
-      <div style={{backgroundColor: this.state.color}}>
-        <div style={{ background:"url("+ this.state.meme +")"}}/>
-        <h1 style={{ color: "white", fontFamily: "Eksell, serif", fontSize: 100 }}>{ this.state.quote }</h1>
+      <div>
+        <div id={"imgWrapper"}>
+          <a href={this.state.redditLink}> <img src={this.state.imageUrl} /> </a>
+        </div>
+        <h1 style={{ color: "white", fontFamily: "Eksell, serif", fontSize: 36 }}>{this.state.message}</h1>
       </div>
     )
   }
