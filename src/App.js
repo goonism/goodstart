@@ -49,7 +49,8 @@ class App extends Component {
         <div id={"imgWrapper"}>
           <a href={this.state.redditLink}> <img src={this.state.imageUrl} /> </a>
         </div>
-        <h1 style={{ color: "white", fontFamily: "Eksell, serif", fontSize: 36 }}>{this.state.message}</h1>
+        <h1>{this.state.message}</h1>
+        <div id="att">Made by <a href="https://twitter.com/stayfun_">@stayfun_</a> and <a href="https://twitter.com/_DanielSinclair">@_DanielSinclair</a>  </div>
       </div>
     )
   }
